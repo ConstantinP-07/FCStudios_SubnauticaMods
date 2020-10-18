@@ -36,10 +36,7 @@ namespace FCSAIPowerCellSocket
                 AIPowerCellSocketBuildable.PatchSMLHelper();
                 
                 AddTechFabricatorItems();
-
-                var harmony = HarmonyInstance.Create("com.fcsaipowercellsocket.fcstudios");
-                harmony.PatchAll(Assembly.GetExecutingAssembly());
-
+                
                 QuickLogger.Info("Finished patching");
             }
             catch (Exception ex)

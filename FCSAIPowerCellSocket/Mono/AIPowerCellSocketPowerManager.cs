@@ -79,14 +79,8 @@ namespace FCSAIPowerCellSocket.Mono
             bool flag = false;
 
             var techType = pickupable.GetTechType();
-#if SUBNAUTICA
-            var equipType = CraftData.GetEquipmentType(techType);
-#elif BELOWZERO
-            var equipType = TechData.GetEquipmentType(techType);
-#endif
 
-
-            if (equipType == EquipmentType.PowerCellCharger || techType == TechType.PowerCell || techType == TechType.PrecursorIonPowerCell)
+            if (PowerCellCharger.compatibleTech.Contains(techType))
             {
                 flag = true;
             }
@@ -94,7 +88,7 @@ namespace FCSAIPowerCellSocket.Mono
             {
                 QuickLogger.Message(AIPowerCellSocketBuildable.OnlyPowercellsAllowed(), true);
             }
-
+            
             return flag;
         }
 
