@@ -196,6 +196,7 @@ namespace FCS_AlterraHub.Configuration
                 GamePlaySettings.Event = QuestManager.Instance.SaveEvents()?.ToList();
                 GamePlaySettings.CreditReward = QuestManager.Instance.quest.CreditReward;
                 GamePlaySettings.TechTypeReward = QuestManager.Instance.quest.TechTypeReward;
+                GamePlaySettings.MissionDescription = QuestManager.Instance.quest.Description;
                 ModUtils.Save(GamePlaySettings, "settings.json", GetSaveFileDirectory(), OnSaveComplete);
                 return true;
             }
@@ -369,6 +370,7 @@ namespace FCS_AlterraHub.Configuration
         public decimal CreditReward { get; set; }
         public List<QuestEventData> Event { get; set; }
         public List<EventPathData> Path { get; set; }
+        public string MissionDescription { get; set; }
     }
 
     public struct QuestEventData

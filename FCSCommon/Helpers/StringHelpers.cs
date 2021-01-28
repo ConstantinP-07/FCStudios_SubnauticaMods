@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using FCSCommon.Utilities;
+﻿using FCSCommon.Utilities;
 
 namespace FCSCommon.Helpers
 {

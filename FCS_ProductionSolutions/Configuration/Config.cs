@@ -7,7 +7,6 @@ using SMLHelper.V2.Options.Attributes;
 using FCSCommon.Utilities;
 using Oculus.Newtonsoft.Json;
 using SMLHelper.V2.Options;
-using UnityEngine;
 
 namespace FCS_ProductionSolutions.Configuration
 {

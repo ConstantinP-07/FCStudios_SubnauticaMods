@@ -519,25 +519,6 @@ namespace FCS_HomeSolutions.Configuration
             return new PaintToolDataEntry() { Id = id };
         }
 
-        internal static HoverLiftDataEntry GetHoverLiftSaveData(string id)
-        {
-            LoadData();
-
-            var saveData = GetSaveData();
-
-            foreach (var entry in saveData.HoverLiftDataEntries)
-            {
-                if (string.IsNullOrEmpty(entry.Id)) continue;
-
-                if (entry.Id == id)
-                {
-                    return entry;
-                }
-            }
-
-            return new HoverLiftDataEntry { Id = id };
-        }
-
         internal static AlienChiefDataEntry GetAlienChiefSaveData(string id)
         {
             LoadData();
@@ -666,25 +647,6 @@ namespace FCS_HomeSolutions.Configuration
             }
 
             return new TrashRecyclerDataEntry() { Id = id };
-        }
-
-        internal static QuantumTeleporterDataEntry GetQuantumTeleporterSaveData(string id)
-        {
-            LoadData();
-
-            var saveData = GetSaveData();
-
-            foreach (var entry in saveData.QuantumTeleporterEntries)
-            {
-                if (string.IsNullOrEmpty(entry.Id)) continue;
-
-                if (entry.Id == id)
-                {
-                    return entry;
-                }
-            }
-
-            return new QuantumTeleporterDataEntry() { Id = id };
         }
 
         internal static CurtainDataEntry GetCurtainDataEntrySaveData(string id)

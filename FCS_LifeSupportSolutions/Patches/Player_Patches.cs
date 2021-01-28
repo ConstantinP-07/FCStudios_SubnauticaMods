@@ -44,6 +44,7 @@ namespace FCS_LifeSupportSolutions.Patches
         
         public static bool Prefix(ref Player __instance, ref bool __result)
         {
+            return true;
             if (!QPatch.BaseUtilityUnitConfiguration.AffectPlayerOxygen|| !QPatch.BaseUtilityUnitConfiguration.IsModEnabled) return true;
 
             GetDefaultO2Level(__instance);

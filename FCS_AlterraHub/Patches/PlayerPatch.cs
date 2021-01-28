@@ -62,6 +62,7 @@ namespace FCS_AlterraHub.Patches
         public static FCSPDAController FCSPDA;
         private static Player _instance;
         private static bool _firstMissionAdded;
+        private static bool _wasPlaying;
         public static bool LoadSavesQuests { get; set; }
         
         
@@ -77,7 +78,22 @@ namespace FCS_AlterraHub.Patches
                 LoadSavesQuests = false;
             }
 
-            if (Input.GetKeyDown(QPatch.Configuration.FCSPDAKeyCode) && !__instance.GetPDA().isOpen)
+            if (FCSPDA.AudioSource != null)
+            {
+                if (FCSPDA.AudioSource.isPlaying && Mathf.Approximately(Time.timeScale, 0f))
+                {
+                    FCSPDA.AudioSource.Pause();
+                    _wasPlaying = true;
+                }
+
+                if (_wasPlaying && Time.timeScale > 0)
+                {
+                    FCSPDA.AudioSource.UnPause();
+                    _wasPlaying = false;
+                }
+            }
+
+            if (Input.GetKeyDown(QPatch.Configuration.FCSPDAKeyCode) && !__instance.GetPDA().shouldPlayIntro && !__instance.GetPDA().isOpen)
             {
                 if (FCSPDA == null) return;
 
@@ -87,11 +103,11 @@ namespace FCS_AlterraHub.Patches
                 }
             }
 
-            if (LargeWorldStreamer.main.IsWorldSettled() && FCSPDA != null)
+            if (LargeWorldStreamer.main.IsWorldSettled() && FCSPDA != null && DayNightCycle.main.timePassed >= 600f)
             {
-                if(_firstMissionAdded) return;
+                if (_firstMissionAdded) return;
                 FCSPDA.MissionController.UpdateQuest(QuestManager.Instance.GetActiveMission());
-                FCSPDA.MessagesController.AddNewMessage("Message From: Jack Winton (Chief Engineer)", "Jack Winton", "AH-Mission01-Pt1");
+                FCSPDA.MessagesController.AddNewMessage("Message From: Jack Winton (Chief Engineer)", "Jack Winton", "AH-Mission01-Pt1", !Mod.GamePlaySettings.PlayStarterMission);
                 _firstMissionAdded = true;
             }
 

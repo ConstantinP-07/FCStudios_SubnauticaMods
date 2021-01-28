@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace FCSCommon.Helpers
+﻿namespace FCSCommon.Helpers
 {
     internal static class MathOperations
     {

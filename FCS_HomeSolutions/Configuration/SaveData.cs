@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using FCS_AlterraHomeSolutions.Mono.PaintTool;
 using FCS_AlterraHub.Model;
 using FCS_AlterraHub.Objects;
-using FCS_HomeSolutions.HoverLiftPad.Mono;
 using FCS_HomeSolutions.Mono.OutDoorPlanters;
-using FCS_HomeSolutions.QuantumTeleporter.Enumerators;
-using FCS_HomeSolutions.TrashRecycler.Model;
 using Oculus.Newtonsoft.Json;
-using UnityEngine;
 
 namespace FCS_HomeSolutions.Configuration
 {
@@ -42,23 +38,6 @@ namespace FCS_HomeSolutions.Configuration
         [JsonProperty(PropertyName = "COL")] internal Vec4 Fcs { get; set; }
         [JsonProperty(PropertyName = "A")] internal int Amount { get; set; }
         [JsonProperty(PropertyName = "PTM")] internal ColorTargetMode ColorTargetMode { get; set; }
-    }
-
-    [Serializable]
-    internal class HoverLiftDataEntry
-    {
-        [JsonProperty] internal string DockedPrawnID;
-        [JsonProperty] internal string Id { get; set; }
-        [JsonProperty] internal List<LevelData> KnownLevels { get; set; }
-        [JsonProperty] internal Vec3 PadCurrentPosition { get; set; }
-        [JsonProperty] internal bool FrontGatesOpen { get; set; }
-        [JsonProperty] internal bool BackGatesOpen { get; set; }
-        [JsonProperty(PropertyName = "COL")] internal Vec4 Fcs { get; set; }
-        [JsonProperty(PropertyName = "SCOL")] internal Vec4 Secondary { get; set; }
-        [JsonProperty] internal bool PlayerLocked { get; set; }
-        [JsonProperty] internal bool ExosuitLocked { get; set; }
-        [JsonProperty(PropertyName = "BID")] internal string BaseID { get; set; }
-
     }
 
     internal class PlanterDataEntry
@@ -107,19 +86,6 @@ namespace FCS_HomeSolutions.Configuration
         public IEnumerable<string> QueuedItems { get; set; }
         [JsonProperty(PropertyName = "DropData")] internal byte[] DropStorage { get; set; }
         [JsonProperty(PropertyName = "BMC")] internal int BioMaterialsCount { get; set; }
-    }
-
-    internal class QuantumTeleporterDataEntry
-    {
-        [JsonProperty] internal string Id { get; set; }
-        [JsonProperty(PropertyName = "COL")] internal Vec4 Fcs { get; set; }
-        [JsonProperty(PropertyName = "SCOL")] internal Vec4 Secondary { get; set; }
-        [JsonProperty(PropertyName = "BID")] internal string BaseID { get; set; }
-        [JsonProperty] internal string UnitName { get; set; }
-        [JsonProperty] internal bool IsGlobal { get; set; }
-        [JsonProperty] internal QTTeleportTypes SelectedTab { get; set; }
-        [JsonProperty] internal string LinkedPortal { get; set; }
-        [JsonProperty] internal bool IsLinked { get; set; }
     }
 
     internal class BaseOperatorDataEntry
@@ -197,13 +163,11 @@ namespace FCS_HomeSolutions.Configuration
 
         [JsonProperty] internal List<SeaBreezeDataEntry> SeaBreezeDataEntries = new List<SeaBreezeDataEntry>();
         [JsonProperty] internal List<SignDataEntry> SignDataEntries = new List<SignDataEntry>();
-        [JsonProperty] internal List<HoverLiftDataEntry> HoverLiftDataEntries = new List<HoverLiftDataEntry>();
         [JsonProperty] internal List<DecorationDataEntry> DecorationEntries = new List<DecorationDataEntry>();
         [JsonProperty] internal List<PaintToolDataEntry> PaintToolEntries = new List<PaintToolDataEntry>();
         [JsonProperty] internal List<PlanterDataEntry> PlanterEntries = new List<PlanterDataEntry>();
         [JsonProperty] internal List<MiniFountainFilterDataEntry> MiniFountainFilterEntries = new List<MiniFountainFilterDataEntry>();
         [JsonProperty] internal List<TrashRecyclerDataEntry> TrashRecyclerEntries = new List<TrashRecyclerDataEntry>();
-        [JsonProperty] internal List<QuantumTeleporterDataEntry> QuantumTeleporterEntries = new List<QuantumTeleporterDataEntry>();
         [JsonProperty] internal List<CurtainDataEntry> CurtainEntries = new List<CurtainDataEntry>();
         [JsonProperty] internal List<BaseOperatorDataEntry> BaseOperatorEntries = new List<BaseOperatorDataEntry>();
         [JsonProperty] internal List<AlienChiefDataEntry> AlienChiefDataEntries = new List<AlienChiefDataEntry>();

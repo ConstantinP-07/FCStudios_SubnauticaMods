@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using FCSCommon.Converters;
 using SMLHelper.V2.Handlers;
-using UnityEngine;
 
 namespace FCS_ProductionSolutions.Buildable
 {

@@ -330,6 +330,7 @@ namespace FCS_AlterraHub.Mono.FCSPDA.Mono
 
         internal void Open()
         {
+            
             FindPDA();
             _pda.isInUse = true;
             uGUI.main.quickSlots.SetTarget(null);
@@ -354,7 +355,10 @@ namespace FCS_AlterraHub.Mono.FCSPDA.Mono
             UwePostProcessingManager.OpenPDA();
             SafeAnimator.SetBool(Player.main.armsController.animator, "using_pda", true);
             _pda.ui.soundQueue.PlayImmediately(_pda.ui.soundOpen);
-
+            if (_pda.screen.activeSelf)
+            {
+                _pda.screen.SetActive(false);
+            }
             QuickLogger.Debug("FCS PDA Is Open", true);
         }
         
@@ -506,26 +510,10 @@ namespace FCS_AlterraHub.Mono.FCSPDA.Mono
         private AudioSource _audioSource => Player_Update_Patch.FCSPDA.AudioSource;
         private readonly List<AudioMessage> _messages = new List<AudioMessage>();
         private Text _messageCounter;
-        private bool _wasPlaying;
+
         private Dictionary<string,AudioClip> AudioClipFiles => Mod.AudioClips;
 
-        private void Update()
-        {
-            if (_audioSource != null)
-            {
-                if (_audioSource.isPlaying && Mathf.Approximately(DayNightCycle.main.deltaTime, 0f))
-                {
-                    _audioSource.Pause();
-                    _wasPlaying = true;
-                }
 
-                if (_wasPlaying && DayNightCycle.main.deltaTime > 0)
-                {
-                    _audioSource.UnPause();
-                    _wasPlaying = false;
-                }
-            }
-        }
 
         internal void Initialize(FCSPDAController fcsPdaController)
         {
@@ -546,7 +534,8 @@ namespace FCS_AlterraHub.Mono.FCSPDA.Mono
         {
             var message = new AudioMessage(description, audioClipName) {HasBeenPlayed = hasBeenPlayed};
             _messages.Add(message);
-            uGUI_PowerIndicator_Initialize_Patch.MissionHUD.ShowNewMessagePopUp(from);
+            if(!hasBeenPlayed)
+                uGUI_PowerIndicator_Initialize_Patch.MissionHUD.ShowNewMessagePopUp(from);
             RefreshUI();
         }
 

@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
 using FCS_AlterraHub.Mono;
 using FCS_AlterraHub.Registration;
@@ -176,24 +175,7 @@ namespace FCS_ProductionSolutions.Configuration
             return new HydroponicHarvesterDataEntry() { ID = id };
         }
 
-        internal static DeepDrillerSaveDataEntry  GetDeepDrillerMK2SaveData(string id)
-        {
-            LoadData();
 
-            var saveData = GetSaveData();
-
-            foreach (var entry in saveData.DeepDrillerMk2Entries)
-            {
-                if (string.IsNullOrEmpty(entry.Id)) continue;
-
-                if (entry.Id == id)
-                {
-                    return entry;
-                }
-            }
-
-            return new DeepDrillerSaveDataEntry() { Id = id };
-        }
 
         internal static MatterAnalyzerDataEntry GetMatterAnalyzerSaveData(string id)
         {

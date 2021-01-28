@@ -244,6 +244,8 @@ namespace FCS_AlterraHub.Managers.Quests
                     var action = new QuestAction();
                     action.Setup(Instance, item);
 
+                    quest.Description = Mod.GamePlaySettings.MissionDescription;
+
                     quest.QuestActions.Add(action);
 
                     quest.BreadthFirstSearch(Mod.GamePlaySettings.Event[0].GetID);

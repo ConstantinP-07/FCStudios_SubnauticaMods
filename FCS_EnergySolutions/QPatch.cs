@@ -35,14 +35,14 @@ namespace FCS_EnergySolutions
             AuxPatchers.AdditionalPatching();
             ModelPrefab.Initialize();
             
-            var alterraGen = new AlterraGenBuildable();
-            alterraGen.Patch();
+            //var alterraGen = new AlterraGenBuildable();
+            //alterraGen.Patch();
 
             var jetStreamT242 = new JetStreamT242Patcher();
             jetStreamT242.Patch();
 
-            var powerStorage = new PowerStoragePatcher();
-            powerStorage.Patch();
+            //var powerStorage = new PowerStoragePatcher();
+            //powerStorage.Patch();
 
 
             //Register debug commands

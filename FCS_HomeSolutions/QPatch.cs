@@ -4,15 +4,11 @@ using System.Reflection;
 using FCS_AlterraHub.Model;
 using FCS_AlterraHub.Objects;
 using FCS_HomeSolutions.Buildables;
-using FCS_HomeSolutions.Buildables.OutDoorPlanters;
 using FCS_HomeSolutions.Configuration;
-using FCS_HomeSolutions.MiniFountainFilter.Buildables;
-using FCS_HomeSolutions.Mods.AlienChief.Buildables;
 using FCS_HomeSolutions.Mods.Cabinets.Buildable;
 using FCS_HomeSolutions.Mods.FireExtinguisherRefueler.Buildable;
 using FCS_HomeSolutions.Mods.LedLights.Buildable;
 using FCS_HomeSolutions.Mods.TV.Buildable;
-using FCS_HomeSolutions.QuantumTeleporter.Buildable;
 using FCS_HomeSolutions.SeaBreeze.Buildable;
 using FCS_HomeSolutions.Spawnables;
 using FCS_HomeSolutions.TrashReceptacle.Buildable;
@@ -33,17 +29,17 @@ namespace FCS_HomeSolutions
     public class QPatch
     {
         internal static Config Configuration { get; } = OptionsPanelHandler.Main.RegisterModOptions<Config>();
+        
         internal static TelevisionConfig TelevisionConfiguration { get; } = OptionsPanelHandler.Main.RegisterModOptions<TelevisionConfig>();
-        internal static QuantumTeleporterConfig QuantumTeleporterConfiguration { get; } = OptionsPanelHandler.Main.RegisterModOptions<QuantumTeleporterConfig>();
-
-        internal static HoverLiftPadConfig HoverLiftPadConfiguration { get; } =
-            OptionsPanelHandler.Main.RegisterModOptions<HoverLiftPadConfig>();
+        
+        //internal static QuantumTeleporterConfig QuantumTeleporterConfiguration { get; } = OptionsPanelHandler.Main.RegisterModOptions<QuantumTeleporterConfig>();
+        
+        //internal static HoverLiftPadConfig HoverLiftPadConfiguration { get; } = OptionsPanelHandler.Main.RegisterModOptions<HoverLiftPadConfig>();
 
         internal static PaintToolConfig PaintToolConfiguration { get; } =
             OptionsPanelHandler.Main.RegisterModOptions<PaintToolConfig>();
 
-        internal static MiniFountainConfig MiniFountainFilterConfiguration { get; } =
-            OptionsPanelHandler.Main.RegisterModOptions<MiniFountainConfig>();
+        //internal static MiniFountainConfig MiniFountainFilterConfiguration { get; } = OptionsPanelHandler.Main.RegisterModOptions<MiniFountainConfig>();
 
         internal static SeaBreezeConfig SeaBreezeConfiguration { get; } =
             OptionsPanelHandler.Main.RegisterModOptions<SeaBreezeConfig>();
@@ -65,19 +61,19 @@ namespace FCS_HomeSolutions
             //Load Additional Colors
             LoadAdditionalColors();
 
-            var ahsSweetWaterBar = new SweetWaterBarPatch("ahsSweetWaterBar", "Sweet Water Bar",
-                "All drinks on the house.", ModelPrefab.GetPrefab("SweetWaterBar"), new Settings
-                {
-                    KitClassID = "ahsSweetWaterBar_kit",
-                    AllowedInBase = true,
-                    AllowedOutside = true,
-                    AllowedOnGround = true,
-                    RotationEnabled = true,
-                    Cost = 45000,
-                    Size = new Vector3(3.009064f, 2.474508f, 1.905116f),
-                    Center = new Vector3(-0.1594486f, 1.41353f, 0.02790368f)
-                });
-            ahsSweetWaterBar.Patch();
+            //var ahsSweetWaterBar = new SweetWaterBarPatch("ahsSweetWaterBar", "Sweet Water Bar",
+            //    "All drinks on the house.", ModelPrefab.GetPrefab("SweetWaterBar"), new Settings
+            //    {
+            //        KitClassID = "ahsSweetWaterBar_kit",
+            //        AllowedInBase = true,
+            //        AllowedOutside = true,
+            //        AllowedOnGround = true,
+            //        RotationEnabled = true,
+            //        Cost = 45000,
+            //        Size = new Vector3(3.009064f, 2.474508f, 1.905116f),
+            //        Center = new Vector3(-0.1594486f, 1.41353f, 0.02790368f)
+            //    });
+            //ahsSweetWaterBar.Patch();
 
 
             //Patch Paint Tool
@@ -93,19 +89,19 @@ namespace FCS_HomeSolutions
             //hoverLiftPad.Patch();
 
             //Patch Smart Planter Pot
-            var smartOutDoorPlanter = new OutDoorPlanterPatch(Mod.SmartPlanterPotClassID, Mod.SmartPlanterPotFriendly,
-                Mod.SmartPlanterPotDescription, ModelPrefab.SmallOutdoorPot, new Settings
-                {
-                    KitClassID = Mod.SmartPlanterPotKitClassID,
-                    Size = new Vector3(0.7929468f, 0.3463891f, 0.7625999f),
-                    Center = new Vector3(0f, 0.2503334f, 0f)
-                });
+            //var smartOutDoorPlanter = new OutDoorPlanterPatch(Mod.SmartPlanterPotClassID, Mod.SmartPlanterPotFriendly,
+            //    Mod.SmartPlanterPotDescription, ModelPrefab.SmallOutdoorPot, new Settings
+            //    {
+            //        KitClassID = Mod.SmartPlanterPotKitClassID,
+            //        Size = new Vector3(0.7929468f, 0.3463891f, 0.7625999f),
+            //        Center = new Vector3(0f, 0.2503334f, 0f)
+            //    });
 
-            smartOutDoorPlanter.Patch();
+            //smartOutDoorPlanter.Patch();
 
-            //Patch Mini Fountain Filter
-            var miniFountainFilter = new MiniFountainFilterBuildable();
-            miniFountainFilter.Patch();
+            ////Patch Mini Fountain Filter
+            //var miniFountainFilter = new MiniFountainFilterBuildable();
+            //miniFountainFilter.Patch();
 
             //Patch SeaBreeze
             var seaBreeze = new SeaBreezeBuildable();
@@ -119,26 +115,26 @@ namespace FCS_HomeSolutions
             var fireExtinguisherRefueler = new FireExtinguisherRefuelerBuildable();
             fireExtinguisherRefueler.Patch();
 
-            //Patch Trash Receptacle
-            var trashReceptacle = new TrashReceptaclePatch();
-            trashReceptacle.Patch();
+            ////Patch Trash Receptacle
+            //var trashReceptacle = new TrashReceptaclePatch();
+            //trashReceptacle.Patch();
 
-            //Patch Trash Recycler
-            var trashRecycler = new TrashRecyclerPatch();
-            trashRecycler.Patch();
+            ////Patch Trash Recycler
+            //var trashRecycler = new TrashRecyclerPatch();
+            //trashRecycler.Patch();
 
 
             //Patch Curtain
             var curtain = new CurtainPatch();
             curtain.Patch();
 
-            //Patch Quantum Teleporter
-            var quantumTeleporter = new QuantumTeleporterBuildable();
-            quantumTeleporter.Patch();
+            ////Patch Quantum Teleporter
+            //var quantumTeleporter = new QuantumTeleporterBuildable();
+            //quantumTeleporter.Patch();
 
-            //Patch Alien Chief
-            var alienChief = new AlienChefBuildable();
-            alienChief.Patch();
+            ////Patch Alien Chief
+            //var alienChief = new AlienChefBuildable();
+            //alienChief.Patch();
 
 
             //Patch Alterra Mini Bathroom
@@ -232,20 +228,20 @@ namespace FCS_HomeSolutions
 
         private void LoadOtherObjects()
         {
-            var ahsrailing = new DecorationEntryPatch("ahsrailing", "Large Railing", "A railing to create a barrior",
-                ModelPrefab.GetPrefab("Large_Rail_01"),
-                new Settings
-                {
-                    KitClassID = "ahsrailing_kit",
-                    AllowedInBase = true,
-                    AllowedOutside = true,
-                    AllowedOnGround = true,
-                    RotationEnabled = true,
-                    Cost = 20000,
-                    Size = new Vector3(1.963638f, 1.020765f, 0.1433573f),
-                    Center = new Vector3(0f, 0.6343491f, 0f)
-                });
-            ahsrailing.Patch();
+            //var ahsrailing = new DecorationEntryPatch("ahsrailing", "Large Railing", "A railing to create a barrior",
+            //    ModelPrefab.GetPrefab("Large_Rail_01"),
+            //    new Settings
+            //    {
+            //        KitClassID = "ahsrailing_kit",
+            //        AllowedInBase = true,
+            //        AllowedOutside = true,
+            //        AllowedOnGround = true,
+            //        RotationEnabled = true,
+            //        Cost = 20000,
+            //        Size = new Vector3(1.963638f, 1.020765f, 0.1433573f),
+            //        Center = new Vector3(0f, 0.6343491f, 0f)
+            //    });
+            //ahsrailing.Patch();
 
             var ahsrailingglass = new DecorationEntryPatch("ahsrailingglass", "Large Railing With Glass",
                 "A railing to create a barrior",
@@ -263,21 +259,21 @@ namespace FCS_HomeSolutions
                 });
             ahsrailingglass.Patch();
 
-            var ahssmallrail = new DecorationEntryPatch("ahssmallrail", "Small Railing",
-                "A railing to create a barrior",
-                ModelPrefab.GetPrefab("Small_Rail_01"),
-                new Settings
-                {
-                    KitClassID = "ahssmallrailing_kit",
-                    AllowedInBase = true,
-                    AllowedOutside = true,
-                    AllowedOnGround = true,
-                    RotationEnabled = true,
-                    Cost = 15000,
-                    Size = new Vector3(1f, 0.822893f, 0.1791649f),
-                    Center = new Vector3(-1.365597e-25f, 0.7452481f, -0.004088677f)
-                });
-            ahssmallrail.Patch();
+            //var ahssmallrail = new DecorationEntryPatch("ahssmallrail", "Small Railing",
+            //    "A railing to create a barrior",
+            //    ModelPrefab.GetPrefab("Small_Rail_01"),
+            //    new Settings
+            //    {
+            //        KitClassID = "ahssmallrailing_kit",
+            //        AllowedInBase = true,
+            //        AllowedOutside = true,
+            //        AllowedOnGround = true,
+            //        RotationEnabled = true,
+            //        Cost = 15000,
+            //        Size = new Vector3(1f, 0.822893f, 0.1791649f),
+            //        Center = new Vector3(-1.365597e-25f, 0.7452481f, -0.004088677f)
+            //    });
+            //ahssmallrail.Patch();
 
             var ahssmallrailglass = new DecorationEntryPatch("ahssmallrailglass", "Small Railing With Glass",
                 "A railing to create a barrior",
@@ -295,20 +291,20 @@ namespace FCS_HomeSolutions
                 });
             ahssmallrailglass.Patch();
 
-            var ahssmallstairplatform = new DecorationEntryPatch("ahssmallstairplatform", "Small Stair Platform",
-                "A small set of stairs so you don’t bang your knees.", ModelPrefab.GetPrefab("Small_PlatformDoorStairs"),
-                new Settings
-                {
-                    KitClassID = "ahssmallstairplatform_kit",
-                    AllowedInBase = false,
-                    AllowedOutside = true,
-                    AllowedOnGround = true,
-                    RotationEnabled = true,
-                    Cost = 18000,
-                    Size = new Vector3(4.033218f, 2.194448f, 2.34824f),
-                    Center = new Vector3(4.449882e-24f, 1.225415f, 0.8919346f)
-                });
-            ahssmallstairplatform.Patch();
+            //var ahssmallstairplatform = new DecorationEntryPatch("ahssmallstairplatform", "Small Stair Platform",
+            //    "A small set of stairs so you don’t bang your knees.", ModelPrefab.GetPrefab("Small_PlatformDoorStairs"),
+            //    new Settings
+            //    {
+            //        KitClassID = "ahssmallstairplatform_kit",
+            //        AllowedInBase = false,
+            //        AllowedOutside = true,
+            //        AllowedOnGround = true,
+            //        RotationEnabled = true,
+            //        Cost = 18000,
+            //        Size = new Vector3(4.033218f, 2.194448f, 2.34824f),
+            //        Center = new Vector3(4.449882e-24f, 1.225415f, 0.8919346f)
+            //    });
+            //ahssmallstairplatform.Patch();
 
             //var ahssmallrailmesh = new DecorationEntryPatch("ahssmallrailmesh", "Small Railing With Mesh",
             //    "A railing to create a barrior",
@@ -460,21 +456,21 @@ namespace FCS_HomeSolutions
                 });
             floorShelf07.Patch();
 
-            var tableSmartTV = new TVPatch("tableSmartTV", "Smart TV w/ Wall Mount", "Take a little break and watch some TV. Includes Table Mount.",
-                ModelPrefab.GetPrefab("TableSmartTV"),
-                new Settings
-                {
-                    KitClassID = "tableSmartTV_kit",
-                    AllowedInBase = true,
-                    AllowedOutside = false,
-                    AllowedOnGround = true,
-                    AllowedOnConstructables = true,
-                    RotationEnabled = true,
-                    Cost = 78750,
-                    Size = new Vector3(1.820033f, 1.101903f, 0.08594985f),
-                    Center = new Vector3(-0.003967494f, 0.5916209f, 0.001384925f)
-                });
-            tableSmartTV.Patch();
+            //var tableSmartTV = new TVPatch("tableSmartTV", "Smart TV w/ Wall Mount", "Take a little break and watch some TV. Includes Table Mount.",
+            //    ModelPrefab.GetPrefab("TableSmartTV"),
+            //    new Settings
+            //    {
+            //        KitClassID = "tableSmartTV_kit",
+            //        AllowedInBase = true,
+            //        AllowedOutside = false,
+            //        AllowedOnGround = true,
+            //        AllowedOnConstructables = true,
+            //        RotationEnabled = true,
+            //        Cost = 78750,
+            //        Size = new Vector3(1.820033f, 1.101903f, 0.08594985f),
+            //        Center = new Vector3(-0.003967494f, 0.5916209f, 0.001384925f)
+            //    });
+            //tableSmartTV.Patch();
 
             var mountSmartTV = new TVPatch("mountSmartTV", "Smart TV w/ Stand", "Take a little break and watch some TV. Includes Wall Mount.",
                 ModelPrefab.GetPrefab("MountSmartTV"),
@@ -493,41 +489,41 @@ namespace FCS_HomeSolutions
                 });
             mountSmartTV.Patch();
 
-            var neonShelf01 = new DecorationEntryPatch("neonShelf01", "Neon Shelf 01", "A shelf with neon lights. (Paint Tool Recommended)",
-                ModelPrefab.GetPrefab("NeonShelf01"),
-                new Settings
-                {
-                    KitClassID = "neonShelf01_kit",
-                    AllowedInBase = true,
-                    AllowedOutside = false,
-                    AllowedOnGround = false,
-                    AllowedInSub = true,
-                    AllowedOnWall = true,
-                    AllowedOnConstructables = true,
-                    RotationEnabled = false,
-                    Cost = 27000,
-                    Size = new Vector3(1.997957f, 0.06401221f, 0.9870584f),
-                    Center = new Vector3(-2.488494e-05f, -0.01308646f, 0.5065421f)
-                });
-            neonShelf01.Patch();
+            //var neonShelf01 = new DecorationEntryPatch("neonShelf01", "Neon Shelf 01", "A shelf with neon lights. (Paint Tool Recommended)",
+            //    ModelPrefab.GetPrefab("NeonShelf01"),
+            //    new Settings
+            //    {
+            //        KitClassID = "neonShelf01_kit",
+            //        AllowedInBase = true,
+            //        AllowedOutside = false,
+            //        AllowedOnGround = false,
+            //        AllowedInSub = true,
+            //        AllowedOnWall = true,
+            //        AllowedOnConstructables = true,
+            //        RotationEnabled = false,
+            //        Cost = 27000,
+            //        Size = new Vector3(1.997957f, 0.06401221f, 0.9870584f),
+            //        Center = new Vector3(-2.488494e-05f, -0.01308646f, 0.5065421f)
+            //    });
+            //neonShelf01.Patch();
 
 
-            var neonTable01 = new DecorationEntryPatch("neonTable01", "Neon Table 01", "A table with neon lights. (Paint Tool Recommended)",
-                ModelPrefab.GetPrefab("NeonTable01"),
-                new Settings
-                {
-                    KitClassID = "neonTable01_kit",
-                    AllowedInBase = true,
-                    AllowedOutside = false,
-                    AllowedOnGround = true,
-                    AllowedInSub = true,
-                    AllowedOnConstructables = true,
-                    RotationEnabled = true,
-                    Cost = 45000,
-                    Size = new Vector3(1.997957f, 0.8685947f, 2.000143f),
-                    Center = new Vector3(-2.488494e-05f, 0.5808856f, 0f)
-                });
-            neonTable01.Patch();
+            //var neonTable01 = new DecorationEntryPatch("neonTable01", "Neon Table 01", "A table with neon lights. (Paint Tool Recommended)",
+            //    ModelPrefab.GetPrefab("NeonTable01"),
+            //    new Settings
+            //    {
+            //        KitClassID = "neonTable01_kit",
+            //        AllowedInBase = true,
+            //        AllowedOutside = false,
+            //        AllowedOnGround = true,
+            //        AllowedInSub = true,
+            //        AllowedOnConstructables = true,
+            //        RotationEnabled = true,
+            //        Cost = 45000,
+            //        Size = new Vector3(1.997957f, 0.8685947f, 2.000143f),
+            //        Center = new Vector3(-2.488494e-05f, 0.5808856f, 0f)
+            //    });
+            //neonTable01.Patch();
 
             var neonTable02 = new DecorationEntryPatch("neonTable02", "Neon Table 02", "A table with neon lights. (Paint Tool Recommended)",
                 ModelPrefab.GetPrefab("NeonTable02"),
@@ -546,8 +542,8 @@ namespace FCS_HomeSolutions
                 });
             neonTable02.Patch();
 
-            var observationTank = new ObservationTankBuildable();
-            observationTank.Patch();
+            //var observationTank = new ObservationTankBuildable();
+            //observationTank.Patch();
         }
 
         private void LoadCurtainTemplates()
@@ -580,9 +576,9 @@ namespace FCS_HomeSolutions
             var cabinet1 = new Cabinet1Buildable();
             cabinet1.Patch();
 
-            //Patch Cabinet 2
-            var cabinet2 = new Cabinet2Buildable();
-            cabinet2.Patch();
+            ////Patch Cabinet 2
+            //var cabinet2 = new Cabinet2Buildable();
+            //cabinet2.Patch();
 
             //Patch Cabinet 3
             var cabinet3 = new Cabinet3Buildable();

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using FCS_AlterraHub.Helpers;
 using FCS_ProductionSolutions.Buildable;
 using FCS_ProductionSolutions.HydroponicHarvester.Enumerators;
-using FCS_ProductionSolutions.HydroponicHarvester.Mono;
 using FCSCommon.Utilities;
 using UnityEngine;
 

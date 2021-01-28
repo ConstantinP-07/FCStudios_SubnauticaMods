@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using FCS_AlterraHub.Enumerators;
 using FCS_AlterraHub.Objects;
-using FCS_ProductionSolutions.DeepDriller.Configuration;
-using FCS_ProductionSolutions.DeepDriller.Structs;
 using FCS_ProductionSolutions.HydroponicHarvester.Enumerators;
 using FCS_ProductionSolutions.HydroponicHarvester.Mono;
 using Oculus.Newtonsoft.Json;
@@ -51,46 +49,13 @@ namespace FCS_ProductionSolutions.Configuration
         [JsonProperty] internal bool Reset { get; set; }
     }
 
-    [Serializable]
-    internal class DeepDrillerSaveDataEntry
-    {
-        [JsonProperty] internal float Health { get; set; }
 
-        [JsonProperty] internal string Id { get; set; }
-
-        [JsonProperty] internal FCSPowerStates PowerState { get; set; }
-
-        [JsonProperty] internal Dictionary<TechType, int> Items { get; set; }
-
-        [JsonProperty] internal DeepDrillerPowerData PowerData { get; set; }
-
-        [JsonProperty] internal HashSet<TechType> FocusOres { get; set; }
-
-        [JsonProperty] internal bool IsFocused { get; set; }
-
-        [JsonProperty] internal string Biome { get; set; }
-
-        [JsonProperty] internal float OilTimeLeft { get; set; }
-
-        [JsonProperty] internal bool SolarExtended { get; set; }
-
-        [JsonProperty] internal Vec4 Body { get; set; }
-
-        [JsonProperty] internal bool PullFromRelay { get; set; }
-        [JsonProperty] internal IEnumerable<UpgradeSave> Upgrades { get; set; }
-        [JsonProperty] internal bool IsRangeVisible { get; set; }
-        [JsonProperty] internal bool AllowedToExport { get; set; }
-        [JsonProperty] internal bool IsBlackListMode { get; set; }
-        [JsonProperty] internal Vec4 Sec { get; set; }
-        [JsonProperty] internal bool IsBrakeSet { get; set; }
-    }
 
     [Serializable]
     internal class SaveData
     {
         [JsonProperty] internal List<HydroponicHarvesterDataEntry> HydroponicHarvesterEntries = new List<HydroponicHarvesterDataEntry>();
         [JsonProperty] internal List<MatterAnalyzerDataEntry> MatterAnalyzerEntries = new List<MatterAnalyzerDataEntry>();
-        [JsonProperty] internal List<DeepDrillerSaveDataEntry> DeepDrillerMk2Entries = new List<DeepDrillerSaveDataEntry>();
         [JsonProperty] internal List<ReplicatorDataEntry> ReplicatorEntries = new List<ReplicatorDataEntry>();
         [JsonProperty] internal List<DNASampleData> HydroponicHarvesterKnownTech { get; set; } = new List<DNASampleData>();
     }

@@ -4,7 +4,6 @@ using FCS_ProductionSolutions.Configuration;
 using FCSCommon.Helpers;
 using FCSCommon.Utilities;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace FCS_ProductionSolutions.Buildable
 {
